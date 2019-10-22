@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            margin: 0%;
+            padding: 0;
+            background-color: rgb(26, 162, 252);
+            font: Normal 12pt Arial;
+            padding: 12px;
+        }
+        header h3 {
+            color: white;
+            text-align: center;
+        }
+        section {
+            margin: auto;
+            padding: 9px;
+            text-align: center;
+            background-color: aliceblue;
+            width: 420px;
+            border-radius: 12px;
+        }
+        #data {
+            border-radius: 4px;
+        }
+        #foto {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        footer {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Verificador de Idade</h3>
+    </header>
+    <section>
+        <div>
+           <p>Ano de nascimento: <input type="number" id="datanasc" min="0"></p>
+           <p>Sexo:
+               <input type="radio" name="radsex" id="masc" checked>
+                  <label for="masc">Masculino</label>
+               <input type="radio" name="radsex" id="fem">
+                  <label for="fem">Feminino</label>
+           </p>
+           <p>
+                <input type="button" value="Verificar" onclick="verIdade()">
+           </p>
+        </div>
+        <div id="msg">
+            Preencha os dados acimas para ver os resultados!
+        </div>
+    </section>
+    <footer>
+        <p>&copy; FrotaDev</p>
+    </footer>
+
+    <script>
+        function verIdade() {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fano = document.getElementById('datanasc')
+            var res = document.getElementById('msg')
+
+            // condição verificando entrada do ano
+            if(fano.value.length == 0 || fano.value > ano) {
+                alert("Erro! Ano inválido para consulta.")
+            } else {
+
+                var fsex = document.getElementsByName('radsex')
+                var idade = ano - Number(fano.value)
+                var gen = ''
+                var img = document.createElement('img') // criando elemento imagem
+                img.setAttribute('id', 'foto') // id da imagem
+
+                // verificando genero
+                if (fsex[0].checked) {
+                    gen = 'Homem'
+                    if (idade >= 0 && idade <= 10) {
+                        // criança
+                        img.setAttribute('src', 'img/crianca-m.jpg')
+                    } else if (idade < 21) {
+                        // jovem
+                        img.setAttribute('src', 'img/jovem-m.jpg')
+                    } else if (idade < 50) {
+                        // adulto
+                        img.setAttribute('src', 'img/adulto-m.jpg')
+                    } else {
+                        // idoso
+                        img.setAttribute('src', 'img/idoso-m.jpg')
+                    }
+                } else if (fsex[1].checked) {
+                    gen = 'Mulher'
+                    if (idade >= 0 && idade <= 10) {
+                        // criança
+                        img.setAttribute('src', 'img/crianca-f.jpg')
+                    } else if (idade < 21) {
+                        // jovem
+                        img.setAttribute('src', 'img/jovem-f.jpg')
+                    } else if (idade < 50) {
+                        // adulta
+                        img.setAttribute('src', 'img/adulto-f.jpg')
+                    } else {
+                        // idosa
+                        img.setAttribute('src', 'img/idoso-f.jpg')
+                    }
+                }
+                res.innerHTML = `Foi detectado ${gen} sua idade: ${idade} anos.`
+                res.appendChild(img) // colocando pra aparecer a imagem
+            }
+        }
+    </script>
+</body>
+</html>

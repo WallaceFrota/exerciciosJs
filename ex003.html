@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tratamento de dados!</title>
+    <style>
+       body {
+           background-color: rgb(32, 201, 243)
+       }
+       h3 {
+           color: white;
+           font-family: sans-serif;
+       }
+       p {
+           color: red;
+           font-size: 14pt;
+           font-family: sans-serif;
+       }
+    </style>
+</head>
+<body>
+    <h3>Olá, Mundo!</h3>
+    <p id="res">Me livrei da maldição. <br></p>
+</body>
+  <script>
+/*
+      // comando de alertas em tela
+      //window.alert("Conteúdo explicitamente destinado a maiores de 18 anos!")
+      //window.confirm("Deseja entrar?")
+      var idade = window.prompt("Qual sua idade?")
+      if(idade < 18) {
+          alert('Acesso negado')
+      } else {
+          alert('tudo ok')
+      }
+      // prompt vem como string mesmo digitando numeros fazer conversão
+*/
+      // converter string em numero em JS
+      // Number.parseInt(n)
+      // Number.parseFloat(n)
+      // usar Number(n) faz com o js decida
+
+      // converter numero em string no JS
+      //String(n)
+      //n.toString()
+
+      // formatando string, template string utiliza crase ${nome} exemplo!
+      var res = document.getElementById('res')
+      var s = 'Javascript'
+      // s.length == tamanho da string
+      // s.toUpperCase() == tudo para MAIUSCULA
+      // s.toLowerCase() == tudo para minusculas
+      res.innerHTML += `O tamanho da palavra: ${s.length} letras <br> Maiuscúla: ${s.toUpperCase()}<br> Minúscula: ${s.toLowerCase()}`
+      
+      var n1 = parseFloat(prompt("Digite um número?"))
+      var n2 = parseFloat(prompt("Digite outro número?"))
+      var s = n1 + n2
+
+      //window.alert("A soma dos números é igual a " + s) // concatenação
+      window.alert(`soma de ${n1} + ${n2} é igual a ${s}`)
+  </script>
+</html>

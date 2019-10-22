@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício Condições - multas</title>
+</head>
+<body>
+   Velocidade do carro: <input type="number" id="txtvel"> km/h
+    <input type="button" value="Verificar" onclick="vel()">
+    <div id="res">
+
+    </div>
+
+    <script>
+       function vel(){
+           var txtv = document.getElementById('txtvel')
+           var res = document.getElementById('res')
+           // convertendo dados do input em tipo Numerico
+           var velo = Number(txtv.value)
+
+           // condição de verificação da velocidade
+           if (velo > 40 && velo < 80 ) {
+               //alert(`Sua velocidade foi: ${velo} MULTADO!`)
+               res.innerHTML = `<p>Sua velocidade: ${velo} status <strong>MULTADO!</strong></p>`
+           } else if(velo >= 80 && velo <= 120 ) {
+               res.innerHTML = `<p>Sua velocidade: ${velo} risco eminente de acidente`
+           } else {
+               //alert(`Sua velocidade foi: ${velo} dentro dos limite.`)
+               res.innerHTML = `<p>Sua velocidade: ${velo} status normal.</p>`
+           }
+       }
+    </script>
+</body>
+</html>

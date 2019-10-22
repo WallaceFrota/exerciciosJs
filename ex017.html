@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabuada</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(37, 156, 253);
+            font: Normal 14pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            width: 500px;
+            padding: 15px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+        }
+        input {
+            border-radius: 3px;
+        }
+        footer {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Tabuada</h3>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Número: <input type="number" id="numero">
+                <input type="button" value="Sua tabuada" onclick="tab()">
+            </p>
+        </div>
+        <div>
+            <select id="seltab" size="10"></select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; FrotaDev</p>  
+    </footer>
+
+    <script>
+        function tab() {
+            var num = document.getElementById('numero')
+            let tab = document.getElementById('seltab')
+
+            // verificando entrada
+            if(num.value.length == 0) {
+                alert("Entrada vazia, insira dados.")
+            } else {
+                // convertendo a entrada em numero
+                var n = Number(num.value)
+                tab.innerHTML = ''
+                // repetição mostrando o resultado
+                for(var c = 1; c <= 10; c++) {
+                    r = n * c // multiplicação
+                    var item = document.createElement('option') // criando elemento
+                    item.innerText = `\u{1F449} ${n} x ${c} = ${r}`
+                    tab.appendChild(item) // adicionando
+                }
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>

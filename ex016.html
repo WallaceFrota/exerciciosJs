@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contador Poderoso</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(37, 156, 253);
+            font: Normal 14pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            width: 500px;
+            padding: 15px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+        }
+        input {
+            border-radius: 3px;
+        }
+        footer {
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Vamos contar</h3>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Início: <input type="number" id="txti"></p>
+            <p>Fim: <input type="number" id="txtf"></p>
+            <p>Passo: <input type="number" id="txtp"></p>
+            <p><input type="button" value="Contar" onclick="contar()"></p>
+        </div>
+        <div id="res">
+            Preparando contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy; FrotaDev</p>
+    </footer>
+
+    <script>
+        function contar() {
+            var ini = document.getElementById('txti')
+            var fim = document.getElementById('txtf')
+            var passo = document.getElementById('txtp')
+            var res = document.getElementById('res')
+
+            // verificação dos valores inseridos
+            if(ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+                alert('ERRO, Dados inválidos')
+            } else {
+                res.innerHTML = 'Contando: <br>'
+                // transformando as entradas dos inputs em numeros
+                var i = Number(ini.value)
+                var f = Number(fim.value)
+                var p = Number(passo.value)
+                // verificação se entrada do passo foi 0
+                if(p <= 0) {
+                    alert("Passo inválido, considerando PASSO 1")
+                    p = 1
+                }
+                // verificação crescente
+                if(i < f) {
+                    for(var c = i; c <= f; c += p) { // crescente
+                        res.innerHTML += `${c} \u{1F449}` // concatenando e mostrando
+                    }
+                    res.innerHTML += `\u{1F3C1}`
+                } else {
+                    for(var c = i; c >= f; c -= p) { // regressiva
+                        res.innerHTML += `${c} \u{1F449}`
+                    }
+                    res.innerHTML += `\u{1F3C1}`
+                }
+
+            }
+        }
+    
+    </script>
+</body>
+</html>

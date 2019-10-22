@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tratamento de dados!</title>
+    <style>
+       body {
+           background-color: rgb(32, 201, 243)
+       }
+    </style>
+</head>
+<body>
+</body>
+  <script>
+       var nome = window.prompt("Qual seu nome?")
+       // escrevendo em tela o nome em maiusculo e vendo qtd de letras do nome
+       document.write(`Olá, ${nome.toUpperCase()} seu nome tem ${nome.length} letras.`)
+
+       // formatando numeros
+       // mostrando casas decimais n1.toFixed(2) 2 é = numero de casas decimais
+       // transformar o ponto em virgula n1.toFixed(2).replace('.', ',')
+       var n1 = 1547.3
+       document.write(`O número é ${n1.toFixed(2).replace('.', ',')}`)
+  </script>
+</html>

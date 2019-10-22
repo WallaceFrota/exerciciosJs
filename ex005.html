@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primeiros passos com o DOM</title>
+    <style>
+       body {
+           background-color: rgb(42, 154, 253);
+           color: #fff;
+           font: normal 16pt Arial;
+       }
+    </style>
+</head>
+<body>
+    <h2>Iniciando estudos com o DOM</h2>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+
+    <script>
+        // alterando cor do body
+        var corpo = document.body
+        corpo.style.background = 'black'
+        // outra forma sem variavel
+        document.body.style.background = 'corDefinida'
+
+         // Selecionando o 1º P com tagname
+         var p1 = document.getElementsByTagName('p')[0];
+         p1.innerText = 'I like playsoccer'
+/*
+         // Selecionando pelo ByName -> name="msg"
+         var e = document.getElementsByName('msg')[0]
+         e.innerText = 'Olá'
+    
+         // Selecionando pelo querySelector
+         var f = document.querySelector('div#msg');
+         f.innerText = 'Selecionado pelo query div = #, class = .'
+         f.style.color = 'red'
+*/
+         // Selecionando o elemento pelo ID e alterando algumas coisas
+         var d = document.getElementById('msg');
+         var item = document.createElement('p')
+         item.innerText += 'Testando criação'
+         d.style.background = 'green'
+         d.style.color = 'white'
+         d.style.padding = '15px'
+         d.style.borderRadius = '10px'
+         d.style.font = 'Normal 18pt Arial'
+         d.innerText = 'Vivendo a vida loka.'
+         d.appendChild(item)
+    </script>
+</body>
+</html>

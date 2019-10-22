@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos DOM</title>
+    <style>
+        #area {
+           background-color: rgb(102, 204, 102);
+           color: #fff;
+           font: Arial normal 20pt;
+           width: 200px;
+           height: 200px;
+           line-height: 200px;
+           text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+        Interaja...
+    </div>
+
+    <script>
+        // posso colocar a variavel A aqui que funciona em todos
+        var a = document.getElementById('area')
+        
+        // eventos atraves do eventlistener
+        a.addEventListener('click', clicar)
+        a.addEventListener('mousemove', mudar)
+        a.addEventListener('mouseout', sair)
+
+        function clicar() {
+            // executado quando chamado a função
+            a.innerText = 'Clicouuu!'
+            a.style.background = 'red';
+        }
+
+        function mudar() {
+            a.innerText = 'Moveu!!!'
+            a.style.background = 'blue'
+        }
+        
+        function sair() {
+            a.innerText = 'Saiu!!!'
+            a.style.background = 'green'
+            a.style.color = 'white'
+        }
+    </script>
+</body>
+</html>
